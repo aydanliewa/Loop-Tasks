@@ -16,7 +16,7 @@ print("Liftoff!")
 #Cinema tickets
 child_count=0
 adult_count=0
-for i in range(0,6):
+for i in range(1,6):
     visitor_age=int(input())
     if visitor_age < 18:
         child_count=child_count+1
@@ -52,7 +52,7 @@ print("Average:", average)
 #Choose a password
 password=""
 while len(password)<8:
-    password=input()
+    password=input("New password: ")
     if len(password)<8:
         print("Too short, try again")
 print("Password accepted")
@@ -78,8 +78,8 @@ print("Done")
 total=0
 daily_step=1200
 for i in range(1,8):
-    totalsteps=total+daily_step
-    print("Day", i, ":", totalsteps)
+    total=total+daily_step
+    print("Day", i, ":", total)
 
 
 
@@ -98,7 +98,7 @@ while True:
     elif amount<0:
         print("Invalid amount")
     elif amount>balance:
-        print("Insufficient balance")
+        print("Insufficient funds")
     else:
         balance=balance-amount
         print("Balance:", balance)
@@ -141,7 +141,7 @@ while True:
         passed=passed+1
     else:
         failed=failed+1
-    if grade > highest and count == 0:
+    if grade > highest or count == 0:
         highest=grade
     totalgrades=totalgrades+grade
     count=count+1
@@ -150,7 +150,7 @@ average=round(average,1)
 print("Passed:", passed)
 print("Failed:", failed)
 print("Highest:", highest)
-print("Avarage:", average)
+print("Average:", average)
 
 
 
@@ -225,13 +225,13 @@ for i in password:
         lowercase+=1
 a=[]
 if len(password)<8:
-    a.append("at least 8 characters")
+    a.append("Missing: at least 8 characters")
 if digits==0:
-    a.append("digits")
+    a.append("Missing: digits")
 if uppercase==0:
-    a.append("uppercase letters")
+    a.append("Missinhg: uppercase letters")
 if lowercase==0:
-    a.append("lowercase letters")
+    a.append("Missing: lowercase letters")
 if len(a)==0:
     print("Strong password")
 else:
@@ -246,12 +246,12 @@ else:
 month=0
 savings=0
 monthly_savings=50
-while savings<100:
+while savings<1000:
     savings=savings+monthly_savings
     month=month+1
     print("Month: ", month, savings)
     monthly_savings=monthly_savings+10
-print("Goal reached in month 11")
+print("Goal reached in month ", month)
 
 
 
@@ -277,7 +277,7 @@ pin="2580"
 balance=1000
 attempts=0
 while attempts<3:
-    enteredpin=input()
+    enteredpin=input("Enter PIN: ")
     if enteredpin==pin:
         break
     else:
@@ -286,7 +286,11 @@ if attempts==3:
     print("Card blocked")
 else:
     while True:
-        choice=int(input())
+        print("1-Check balance")
+        print("2-Deposit")
+        print("3-Withdraw")
+        print("4-Exit")
+        choice=int(input("Choose an option: "))
         if choice==1:
             print("Balance: ", balance, "AZN")
         elif choice==2:
@@ -319,8 +323,7 @@ while total<1.50:
     insert_coin=float(input())
     if accepted_coins.count(insert_coin)==1:
         total=total+insert_coin
-        total=round(total,2)
-        print("Total: ", total )
+        print("Total: ", round(total,2 ))
     else:
         print("Coin not accepted")
 change=total-1.50
@@ -386,7 +389,7 @@ while totaltime>0:
     totaltime=totaltime-customertime
     customers+=1
 print("Customers served: ", customers)
-print("Minutes left: , totaltime")
+print("Minutes left: ", totaltime)
 
 
 
@@ -411,31 +414,33 @@ while True:
         spoiledvotes+=1
     print("A: ",votes_for_a, "B: ", votes_for_b, "C: ", votes_for_a)
     print("Spoiled votes: ", spoiledvotes)
-    b=[]
-    maxvote=max(votes_for_b,votes_for_a,votes_for_c)
-    if maxvote==votes_for_a:
-        b.append("A")
-    if maxvote==votes_for_b:
-        b.append("B")
-    if maxvote==votes_for_c:
-        b.append("C")
-    if len(b)>1:
+    maxvote=max(votes_for_a, votes_for_b, votes_for_c)
+    if votes_for_a==maxvote and votes_for_b==maxvote:
         print("Winner: Tie")
+    elif votes_for_a==maxvote and votes_for_c==maxvote:
+         print("Winner: Tie")
+    elif votes_for_b==maxvote and votes_for_c==maxvote:
+         print("Winner: Tie")
+    elif votes_for_a==maxvote:
+        print("Winner: A")
+    elif votes_for_b==maxvote:
+        print("Winner: B")
     else:
-        print("Winner: ", b[0])
+        print("Winner: C")
 
 
 
 #Card number check
 
 
-sum=0
+
 while True:
     card=input()
     if len(card)!=16 or not card.isdigit():
         print("Must be 16 digits")
         continue
-    for i in range(15,-1.-1):
+    sum=0
+    for i in range(15,-1,-1):
         card_digit=int(card[i])
         if (15-i)%2==1:
             card_digit=card_digit*2
