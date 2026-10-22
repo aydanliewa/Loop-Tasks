@@ -83,6 +83,24 @@ for i in range(1,8):
 
 
 
+#Simple login
+
+for attempt in range(1,4):
+    username=input("Username: ")
+    password=input("Password: ")
+    if username=="admin" and password=="1234":
+        print("Welcome!")
+        break
+    else:
+        if attempt<3:
+            print("Wrong username or password")
+        else:
+            print("Account locked")
+        
+
+
+
+
 
 #Part-B Medium
 
