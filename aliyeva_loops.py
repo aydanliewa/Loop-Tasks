@@ -247,7 +247,7 @@ if len(password)<8:
 if digits==0:
     a.append("Missing: digits")
 if uppercase==0:
-    a.append("Missinhg: uppercase letters")
+    a.append("Missing: uppercase letters")
 if lowercase==0:
     a.append("Missing: lowercase letters")
 if len(a)==0:
@@ -308,24 +308,24 @@ else:
         print("2-Deposit")
         print("3-Withdraw")
         print("4-Exit")
-        choice=int(input("Choose an option: "))
-        if choice==1:
+        option=int(input("Choose an option: "))
+        if option==1:
             print("Balance: ", balance, "AZN")
-        elif choice==2:
+        elif option==2:
             deposit=float(input())
             if deposit<=0:
                 print("Invalid amount")
             else:
                 balance=balance+deposit
                 print("New balance: ", balance, "AZN")
-        elif choice==3:
+        elif option==3:
             withdraw=float(input())
             if withdraw<0 or withdraw>balance:
                 print("Invalid or insufficient amount")
             else:
                 balance=balance-withdraw
                 print("New balance: ", balance, "AZN")
-        elif choice==4:
+        elif option==4:
             print("Goodbye")
             break
         else:
