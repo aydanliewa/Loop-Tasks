@@ -241,19 +241,16 @@ for i in password:
         uppercase+=1
     elif i.islower():
         lowercase+=1
-a=[]
 if len(password)<8:
-    a.append("Missing: at least 8 characters")
+    print("Weak password: not enough characters")
 if digits==0:
-    a.append("Missing: digits")
+    print("Weak password:no digits")
 if uppercase==0:
-    a.append("Missing: uppercase letters")
+    print("Weak password:no uppercase letters")
 if lowercase==0:
-    a.append("Missing: lowercase letters")
-if len(a)==0:
-    print("Strong password")
+    print("Weak password: no lowercase letters")
 else:
-    print("Weak password")
+    print("Strong password")
 
 
 
