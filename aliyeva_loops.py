@@ -459,12 +459,12 @@ while True:
         continue
     sum=0
     for i in range(15,-1,-1):
-        card_digit=int(card[i])
+        card_number=int(card[i])
         if (15-i)%2==1:
-            card_digit=card_digit*2
-            if card_digit>9:
-                card_digit=card_digit-9
-        sum=sum+card_digit
+            card_number=card_number*2
+            if card_number>9:
+                card_number=card_number-9
+        sum=sum+card_number
     if sum%10==0:
         print("Valid card number")
     else:
